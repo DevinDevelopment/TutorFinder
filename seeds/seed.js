@@ -9,6 +9,14 @@ const seedDatabase = async () => {
   await User.bulkCreate(userData, {
     individualHooks: true,
     returning: true,
+  })
+  await User.bulkCreate(tutorData, {
+    individualHooks: true,
+    returning: true,
+  })
+  await User.bulkCreate(reviewData, {
+    individualHooks: true,
+    returning: true,
   });
 
   process.exit(0);
