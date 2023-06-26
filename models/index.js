@@ -3,20 +3,20 @@ const Tutor = require('./Tutor');
 const Review = require('./Review');
 
 Tutor.hasMany(Review, {
-    foreignKey: 'user_id',
+    foreignKey: 'review_id',
     onDelete: 'CASCADE',
 });
 
 Review.belongsTo(Tutor, {
-    foreignKey: 'user_id',
+    foreignKey: 'review_id',
 });
 
-Tutor.hasMany(Review, {
+User.hasMany(Review, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE',
 });
 
-Review.belongsTo(Tutor, {
+Review.belongsTo(User, {
     foreignKey: 'user_id',
 });
   
