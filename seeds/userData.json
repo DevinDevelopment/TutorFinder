@@ -3,12 +3,14 @@
     "name": "Sal",
     "email": "sal@hotmail.com",
     "password": "password12345",
+    "description": "fgvfdgfds",
     "review_id": "1"
   },
   {
     "name": "Lernantino",
     "email": "lernantino@gmail.com",
     "password": "password12345",
+    "description": "frgrtehgtreh",
     "review_id": "2"
   }
 ]
