@@ -39,14 +39,6 @@ User.init(
         len: [8],
       },
     },
-    review_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      reference: {
-        model: 'review',
-        key: 'id'
-      }
-    },
   },
   {
     // hooks: {
