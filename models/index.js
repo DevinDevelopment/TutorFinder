@@ -17,6 +17,5 @@ User.hasMany(Review, {
 Review.belongsTo(User, {
     foreignKey: 'review_id',
 });
-  
 
 module.exports = { User, Tutor, Review };
