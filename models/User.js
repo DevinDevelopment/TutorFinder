@@ -40,7 +40,7 @@ User.init(
       },
     },
     review_id: {
-      type: DataTypes.INT,
+      type: DataTypes.INTEGER,
       allowNull: false,
       reference: {
         model: 'review',
