@@ -34,7 +34,7 @@ Review.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       reference: {
-        model: 'review',
+        model: 'user',
         key: 'id'
       }
     },
@@ -42,7 +42,7 @@ Review.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       reference: {
-        model: 'review',
+        model: 'tutor',
         key: 'id'
       }
     },
