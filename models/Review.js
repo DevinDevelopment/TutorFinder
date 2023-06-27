@@ -30,6 +30,22 @@ Review.init(
         len: [10,350]
       },
     },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      reference: {
+        model: 'review',
+        key: 'id'
+      }
+    },
+    tutor_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      reference: {
+        model: 'review',
+        key: 'id'
+      }
+    },
   },
   {
     // hooks: {
