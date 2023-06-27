@@ -32,13 +32,12 @@ Tutor.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    review_id: {
-      type: DataTypes.INTEGER,
+    password: {
+      type: DataTypes.STRING,
       allowNull: false,
-      reference: {
-        model: 'review',
-        key: 'id'
-      }
+      validate: {
+        len: [8],
+      },
     },
   },
   {

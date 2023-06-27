@@ -7,7 +7,7 @@ Tutor.hasMany(Review, {
 });
 
 Review.belongsTo(Tutor, {
-    foreignKey: 'review_id',
+    foreignKey: 'tutor_id',
 });
 
 User.hasMany(Review, {
@@ -15,7 +15,7 @@ User.hasMany(Review, {
 });
 
 Review.belongsTo(User, {
-    foreignKey: 'review_id',
+    foreignKey: 'user_id',
 });
   
 

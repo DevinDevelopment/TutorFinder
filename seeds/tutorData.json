@@ -3,14 +3,12 @@
         "name": "SalTUTOR",
         "email": "salTUTOR@hotmail.com",
         "description": "asdajhfdkbu",
-        "password": "password12345",
-        "review_id": "1"
+        "password": "password12345"
     },
     {
         "name": "LernantinoTUTOR",
         "email": "lernantinolTUTOR@gmail.com",
         "description": "asdajhfdkbu",
-        "password": "password12345",
-        "review_id": "2"
+        "password": "password12345"
     }
 ]
