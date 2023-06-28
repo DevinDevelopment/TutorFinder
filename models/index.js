@@ -3,6 +3,7 @@ const Tutor = require('./Tutor');
 const Review = require('./Review');
 
 Tutor.hasMany(Review, {
+    foreignKey: 'tutor_id',
     onDelete: 'CASCADE',
 });
 
@@ -11,6 +12,7 @@ Review.belongsTo(Tutor, {
 });
 
 User.hasMany(Review, {
+    foreignKey: 'user_id',
     onDelete: 'CASCADE',
 });
 
