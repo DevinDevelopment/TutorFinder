@@ -5,14 +5,13 @@ router.get('/', async (req, res) => {
   try {
     const tutorData = await Tutor.findAll({
       attributes: ['id', 'username'],
-      order: [],
+      order: ['username', 'DESC'],
     });
 
-    const tutorProfile = await User.findByPk(tutorId, {
-      attributes: ['id', 'username', 'email', 'description'],
-    });
-
-    res.send(userProfile);
+    const tutors = tutorData.map((tutor) =>
+      tutor.get({ plain: true})
+    );
+    res.render('tutors', { tutors });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -25,8 +24,8 @@ router.get('/:id', async (req, res) => {
       include: [
         {
           model: Review,
-          attributes: []
-        }
+          attributes: ['title', 'text', 'user_id'],
+        },
       ]
     });
   const tutor = tutorProfile.get({ plain: true});
