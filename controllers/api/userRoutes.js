@@ -11,7 +11,7 @@ router.get('/profile', async (req, res) => {
     const userId = req.session.user_id;
 
     const userProfile = await User.findByPk(userId, {
-      attributes: ['id', 'username', 'email', 'description', 'review_id'],
+      attributes: ['id', 'username', 'email', 'description'],
     });
 
     res.send(userProfile);
