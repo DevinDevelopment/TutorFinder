@@ -1,13 +1,8 @@
 const router = require('express').Router();
-const { Tutor } = require('../../models');
+const { Tutor, Review } = require('../../models');
 
 router.get('/', async (req, res) => {
   try {
-    // if (!req.session.logged_in) {
-    //   res.redirect('/login');
-    //   return;
-    // }
-    //const userId = req.session.user_id;
     const tutorData = await Tutor.findAll({
       attributes: ['id', 'username'],
       order: [],
@@ -26,7 +21,13 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const tutorProfile = await Tutor.findByPk(req.params.id, {
-      attributes: ['id', 'name', 'email', 'description']
+      attributes: ['id', 'name', 'email', 'description'],
+      include: [
+        {
+          model: Review,
+          attributes: []
+        }
+      ]
     });
   const tutor = tutorProfile.get({ plain: true});
   res.render('tutor', { tutor });
