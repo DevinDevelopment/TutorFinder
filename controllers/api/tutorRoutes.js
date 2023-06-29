@@ -35,6 +35,22 @@ router.get('/:id', async (req, res) => {
     console.log(err);
     res.status(500).json(err);
   }
+  try {
+    const tutorReviews = await Review.findAll(req.params.id, {
+      attributes: ['id', 'name', 'email', 'description'],
+      include: [
+        {
+          model: Review,
+          attributes: ['title', 'text', 'user_id'],
+        },
+      ]
+    });
+  const tutor = tutorProfile.get({ plain: true});
+  res.render('tutor', { tutor });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
 
 router.post('/:id', withAuth, async (req, res) => {
@@ -50,7 +66,7 @@ router.post('/:id', withAuth, async (req, res) => {
   } catch (err) {
     res.status(400).json(err);
   }
-
+  
 });
 
 module.exports = router;
