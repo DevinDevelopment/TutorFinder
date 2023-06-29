@@ -5,7 +5,6 @@ const sequelize = require('../config/connection');
 router.get('/', async (req, res) => {
   try {
     const tutorData = await Tutor.findAll({
-      include: { model: Review },
       order: [
         [sequelize.literal('RAND()')]
       ],
