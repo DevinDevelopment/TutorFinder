@@ -2,6 +2,9 @@
   "name": "user-list",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "18.16.0"
+    },
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -18,12 +21,12 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
     "mysql2": "^2.2.5",
-    "sequelize": "^6.3.5",
+    "sequelize": "^6.3.5"
+  },
+  "devDependencies": {
     "nodemon": "^2.0.22",
     "eslint": "^7.12.1",
     "eslint-config-prettier": "^6.15.0",
     "prettier": "^2.1.2"
-  },
-  "devDependencies": {
   }
 }
