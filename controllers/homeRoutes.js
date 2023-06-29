@@ -4,20 +4,20 @@ const sequelize = require('../config/connection');
 
 router.get('/', async (req, res) => {
   try {
-    const tutorData = await Tutor.findAll({
-      include: { model: Review },
+    const reviewData = await Review.findAll({
+      include: [{ model: Tutor }, { model: User }],
       order: [
         [sequelize.literal('RAND()')]
       ],
-      limit: 1,
+      limit: 3,
     });
 
     // Serialize data so the template can read it
-    const tutors = tutorData.map((tutor) => tutor.get({ plain: true }));
-    console.log(tutors);
+    const reviews = reviewData.map((review) => review.get({ plain: true }));
+    console.log(reviews);
     // Pass serialized data and session flag into template
     res.render('homepage', { 
-      tutors, 
+      reviews, 
       // logged_in: req.session.logged_in 
     });
     // res.status(200).json(tutorData);
