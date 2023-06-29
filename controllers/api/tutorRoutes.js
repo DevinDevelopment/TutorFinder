@@ -22,12 +22,6 @@ router.get('/:id', async (req, res) => {
   try {
     const tutorProfile = await Tutor.findByPk(req.params.id, {
       attributes: ['id', 'name', 'email', 'description'],
-      include: [
-        {
-          model: Review,
-          attributes: ['title', 'text', 'user_id'],
-        },
-      ]
     });
   const tutor = tutorProfile.get({ plain: true});
   res.render('tutor', { tutor });
@@ -36,17 +30,12 @@ router.get('/:id', async (req, res) => {
     res.status(500).json(err);
   }
   try {
-    const tutorReviews = await Review.findAll(req.params.id, {
-      attributes: ['id', 'name', 'email', 'description'],
-      include: [
-        {
-          model: Review,
-          attributes: ['title', 'text', 'user_id'],
-        },
-      ]
+    const tutorReviews = await Review.findAll({
+      where: { tutor_id: req.params.id },
+      attributes: ['id', 'title', 'text', 'user_id'],
     });
-  const tutor = tutorProfile.get({ plain: true});
-  res.render('tutor', { tutor });
+  const tutorReview = tutorReviews.get({ plain: true});
+  res.render('tutorReview', { tutorReview });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
