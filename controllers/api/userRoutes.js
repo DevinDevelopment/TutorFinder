@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-router.get('/profile/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     if (!req.session.logged_in) {
       res.redirect('/login');
