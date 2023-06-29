@@ -1,5 +1,20 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User } = require('../models');
+const sequelize = require('../config/connection');
+
+router.get('/', async (req, res) => {
+  try {
+    var hi = "hi"
+    res.render('tutorLogin', {
+        hi,
+        layout: 'Login'
+    });
+
+    // res.status(200).json(tutorData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 router.post('/', async (req, res) => {
   try {
