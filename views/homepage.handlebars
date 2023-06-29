@@ -1,22 +1,14 @@
 <div class="">
   <div class="">
-    <!-- Call the helper function with triple brackets to render the span as HTML -->
-      {{#each tutors as |tutor|}}
-    <div class="">
-      <div class="">
-        <h4>{{tutor.name}}</h4>
-      </div>
-      {{/each}}
       {{#each reviews as |review|}}
     <div class="">
       <div class="">
-        <h4>Review: {{text}}</h4>
+        <h1>{{review.tutor.name}}</h4>
+        <h4>{{review.title}}</h4>
+        <h4>{{review.text}}</h4>
+        <br>
       </div>
       {{/each}}
-      <div class="btn-group" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-secondary">Left</button>
-          <button type="button" class="btn btn-secondary">Middle</button>
-          <button type="button" class="btn btn-secondary">Right</button>
       </div>
   </div>
 </div>

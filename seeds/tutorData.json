@@ -10,5 +10,17 @@
         "email": "lernantinolTUTOR@gmail.com",
         "description": "asdajhfdkbu",
         "password": "password12345"
+    },
+    {
+        "name": "johnTUTOR",
+        "email": "johnTUTOR@gmail.com",
+        "description": "dasdajhfdkbudsds",
+        "password": "password12345"
+    },
+    {
+        "name": "joeTUTOR",
+        "email": "joeTUTOR@gmail.com",
+        "description": "cdcasdajhfdsdsdsdkbu",
+        "password": "password12345"
     }
 ]
