@@ -1,13 +1,12 @@
 const path = require('path');
-const express = require('express');
-const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
+const express = require('express');
+const exphbs = require('express-handlebars');
 const session = require('express-session');
 
 const sequelize = require('./config/connection');
-
-const SequalizeStore = require('connect-session-sequalize')(session.Store);
+const SequalizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -20,12 +19,13 @@ const sess = {
   cookie: {},
   resave: false,
   saveUninitialized: true,
-  store: new SequelizeStore({
+  store: new SequalizeStore({
     db: sequelize
   })
 };
 
 // Inform Express.js which template engine we're using
+app.use(session(sess));
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 

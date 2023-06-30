@@ -1,8 +1,9 @@
-module.exports = {
-//Helper function returns a randomly generated number
-  random_id: (max) => {
-    Math.floor(Math.random() * max);
-
-    return randomNum;
-  },
+const withAuth = (req, res, next) => {
+  if (!req.session.logged_in) {
+    res.redirect('/login');
+  } else {
+    next();
+  }
 };
+
+module.exports = withAuth;
