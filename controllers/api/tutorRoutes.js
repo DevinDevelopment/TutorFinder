@@ -23,23 +23,28 @@ router.get('/:id', async (req, res) => {
     const tutorProfile = await Tutor.findByPk(req.params.id, {
       attributes: ['id', 'name', 'email', 'description'],
     });
-  const tutor = tutorProfile.get({ plain: true});
-  res.render('tutor', { tutor });
+  const tutorReviews = await Review.findAll({
+    where: { tutor_id: req.params.id },
+    attributes: ['id', 'title', 'text', 'user_id'],
+  });
+const tutor = tutorProfile.get({ plain: true});
+const tutorReviewList = tutorReviews.get({ plain: true});
+res.render('tutor', { tutor }, { tutorReviewList });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
-  // try {
-  //   const tutorReviews = await Review.findAll({
-  //     where: { tutor_id: req.params.id },
-  //     attributes: ['id', 'title', 'text', 'user_id'],
-  //   });
-  // const tutorReview = tutorReviews.get({ plain: true});
-  // res.render('tutorReview', { tutorReview });
-  // } catch (err) {
-  //   console.log(err);
-  //   res.status(500).json(err);
-  // }
+  try {
+    const tutorReviews = await Review.findAll({
+      where: { tutor_id: req.params.id },
+      attributes: ['id', 'title', 'text', 'user_id'],
+    });
+  const tutorReviewList = tutorReviews.get({ plain: true});
+  res.render('tutor', { tutorReviewList });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
 
 router.get('/:id/reviews', async (req, res) => {
@@ -48,7 +53,7 @@ router.get('/:id/reviews', async (req, res) => {
       where: { tutor_id: req.params.id },
       attributes: ['id', 'title', 'text', 'user_id'],
     });
-    
+
   const tutorReview = tutorReviews.map((tutor) =>
     tutor.get({ plain: true})
   );

@@ -7,4 +7,14 @@
         <br>
       </div>
       </div>
+    {{#each tutorReviewList as |tutorReview|}}
+    <div class="">
+      <div class="">
+        <h4>{{tutorReview.title}}</h4>
+        <h4>{{tutorReview.text}}</h4>
+        <h4>{{tutorReview.user_id}}</h4>
+        <br>
+      </div>
+      {{/each}}
+      </div>
   </div>
