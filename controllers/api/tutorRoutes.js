@@ -5,10 +5,10 @@ const withAuth = require('../../utils/auth');
 router.get('/', async (req, res) => {
   try {
     const tutorData = await Tutor.findAll({
-      attributes: ['id', 'username'],
-      order: ['username', 'DESC'],
+      attributes: ['id', 'name'],
+      //order: ['name', 'DESC'],
     });
-
+    
     const tutors = tutorData.map((tutor) =>
       tutor.get({ plain: true})
     );
@@ -29,17 +29,17 @@ router.get('/:id', async (req, res) => {
     console.log(err);
     res.status(500).json(err);
   }
-  try {
-    const tutorReviews = await Review.findAll({
-      where: { tutor_id: req.params.id },
-      attributes: ['id', 'title', 'text', 'user_id'],
-    });
-  const tutorReview = tutorReviews.get({ plain: true});
-  res.render('tutorReview', { tutorReview });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
+  // try {
+  //   const tutorReviews = await Review.findAll({
+  //     where: { tutor_id: req.params.id },
+  //     attributes: ['id', 'title', 'text', 'user_id'],
+  //   });
+  // const tutorReview = tutorReviews.get({ plain: true});
+  // res.render('tutorReview', { tutorReview });
+  // } catch (err) {
+  //   console.log(err);
+  //   res.status(500).json(err);
+  // }
 });
 
 router.post('/:id', withAuth, async (req, res) => {
