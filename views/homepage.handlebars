@@ -1,14 +1,55 @@
-<div class="">
-  <div class="">
+<div class="reviews-container">
+  <div class="row">
+    <div class="col-md-4">
       {{#each reviews as |review|}}
-    <div class="">
-      <div class="">
-        <h1>{{review.tutor.name}}</h4>
-        <h4>{{review.title}}</h4>
-        <h4>{{review.text}}</h4>
-        <br>
-      </div>
+        <div class="review-box d-flex flex-column justify-content-center align-items-center custom-margin-bottom mb-3 mt-5">
+          <h2 class="mb-3">{{review.title}}</h2>
+          <h4 class="mb-3">{{review.tutor.name}}</h4>
+          <p class ="mb-5">{{review.text}}</p>
+        </div>
       {{/each}}
-      </div>
+    </div>
+     <div class="col-md-6 offset-md-2 d-flex flex-column align-items-start">
+      <div class="d-flex flex-column justify-content-start">
+        <h2 class="mb-3">Find a Tutor</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Consectetur adipiscing elit duis tristique sollicitudin.
+          Parturient montes nascetur ridiculus mus mauris vitae ultricies.</p>
+
+        <p>Fermentum leo vel orci porta. Id leo in vitae turpis massa.
+          Donec massa sapien faucibus et molestie ac feugiat.</p>
+
+        <p>Eget nulla facilisi etiam dignissim. Commodo viverra maecenas accumsan lacus.
+          Est ullamcorper eget nulla facilisi etiam dignissim. 
+          Lacus suspendisse faucibus interdum posuere lorem ipsum dolor. 
+          Sit amet consectetur adipiscing elit duis tristique sollicitudin.
+          Malesuada bibendum arcu vitae elementum curabitur vitae nunc. 
+          Vestibulum lorem sed risus ultricies tristique nulla aliquet. 
+          Nisl pretium fusce id velit ut. Sed turpis tincidunt id aliquet risus feugiat in ante.</p>
+
+      <h2 class="mb-3">Peepee Poopoo</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Consectetur adipiscing elit duis tristique sollicitudin.
+          Parturient montes nascetur ridiculus mus mauris vitae ultricies.</p>
+        <p>Eget nulla facilisi etiam dignissim. Commodo viverra maecenas accumsan lacus.
+          Est ullamcorper eget nulla facilisi etiam dignissim. 
+          Lacus suspendisse faucibus interdum posuere lorem ipsum dolor. 
+          Sit amet consectetur adipiscing elit duis tristique sollicitudin.
+          Malesuada bibendum arcu vitae elementum curabitur vitae nunc. 
+          Vestibulum lorem sed risus ultricies tristique nulla aliquet. 
+          Nisl pretium fusce id velit ut. Sed turpis tincidunt id aliquet risus feugiat in ante.</p>
+
+      <h2 class="mb-3">Undertale</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Consectetur adipiscing elit duis tristique sollicitudin.
+          Parturient montes nascetur ridiculus mus mauris vitae ultricies.</p>
+        <p>Eget nulla facilisi etiam dignissim. Commodo viverra maecenas accumsan lacus.
+          Est ullamcorper eget nulla facilisi etiam dignissim. 
+          Lacus suspendisse faucibus interdum posuere lorem ipsum dolor. 
+          Sit amet consectetur adipiscing elit duis tristique sollicitudin.
+          Malesuada bibendum arcu vitae elementum curabitur vitae nunc. 
+          Vestibulum lorem sed risus ultricies tristique nulla aliquet. 
+          Nisl pretium fusce id velit ut. Sed turpis tincidunt id aliquet risus feugiat in ante.</p> 
+    </div>
   </div>
 </div>
