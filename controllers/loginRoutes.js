@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
     var hi = "hi"
     res.render('studentLogin', {
         hi,
-        layout: 'Login'
+        layout: 'login'
     });
 
     // res.status(200).json(tutorData);

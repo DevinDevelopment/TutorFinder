@@ -4,8 +4,8 @@ const { Tutor, Review } = require('../../models');
 router.get('/', async (req, res) => {
   try {
     const tutorData = await Tutor.findAll({
-      attributes: ['id', 'username'],
-      order: ['username', 'DESC'],
+      attributes: ['id', 'name'],
+      order: ['name', 'DESC'],
     });
 
     const tutors = tutorData.map((tutor) =>
