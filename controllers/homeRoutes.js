@@ -2,6 +2,8 @@ const router = require('express').Router();
 const { Review, User, Tutor } = require('../models');
 const sequelize = require('../config/connection');
 
+// ------ main page routes
+
 router.get('/', async (req, res) => {
   try {
     const reviewData = await Review.findAll({
@@ -20,6 +22,49 @@ router.get('/', async (req, res) => {
       reviews, 
       // logged_in: req.session.logged_in 
     });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// ------ All tutors page routes
+
+router.get('/tutors', async (req, res) => {
+  try {
+    const tutorData = await Tutor.findAll({
+      attributes: ['id', 'name'],
+      //order: ['name', 'DESC'],
+    });
+    
+    const tutors = tutorData.map((tutor) =>
+      tutor.get({ plain: true})
+    );
+    res.render('tutors', { tutors });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// ------ Student login routes
+
+router.get('/studentLogin', async (req, res) => {
+  try {
+    res.render('studentLogin', {
+        layout: 'login'
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// ------ Tutor login routes
+
+router.get('/tutorLogin', async (req, res) => {
+  try {
+    res.render('tutorLogin', {
+        layout: 'Login'
+    });
+
     // res.status(200).json(tutorData);
   } catch (err) {
     res.status(500).json(err);
