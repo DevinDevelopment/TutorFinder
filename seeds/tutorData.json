@@ -1,26 +1,92 @@
 [
     {
-        "name": "SalTUTOR",
-        "email": "salTUTOR@hotmail.com",
-        "description": "asdajhfdkbu",
+        "name": "Aiden Farina",
+        "email": "top500owl@gmail.com",
+        "description": "Hey my name is Aiden and tbh I don't really care about tutoring, I just wanna watch anime.",
+        "password": "passwordSlime"
+    },
+    {
+        "name": "Austin Waller",
+        "email": "  iUsedToTeachFullstack@gmail.com",
+        "description": "Hey! My name is Austin and if you want a tutor who claims the work your doing is easy even though its actually not, I'm your guy!",
+        "password": "passwordGraduatedAlready"
+    },
+    {
+        "name": "Chase Chambers",
+        "email": "iLikedMyBlackJackGroupMembersMore@gmail.com",
+        "description": "Howdy. I can help you with all kinds of issues, just know I work hard and won't let you slack!",
+        "password": "passwordBlackJack4Life"
+    },
+    {
+        "name": "Dennis Luciano",
+        "email": "mrLuciano@gmail.com",
+        "description": "You will address me as Mr.Luciano. If you pay attention I can make you rich kid.",
+        "password": "passwordLucianoOtherChoice"
+    },
+    {
+        "name": "Dominick D",
+        "email": "iAmSick@gmail.com",
+        "description": "Yeaahhhh I get sick sometimes... But I can still be a great teacher! My smarts are contageous!",
+        "password": "sicklyWinning@gmail.com"
+    },
+    {
+        "name": "James Levesque",
+        "email": "jamesTheAnimeMan@gmail.com",
+        "description": "Hey! I'm only 97 years old and I'm eager to learn alongside you!",
+        "password": "passwordStillDontGetHeroku"
+    },
+    {
+        "name": "Jen Butler",
+        "email": "jenDontPlay@gmail.com",
+        "description": "Hello. I'm a mother that knows things others don't. I can already tell, you forgot the semicolon.",
+        "password": "passwordNotMyProblem"
+    },
+    {
+        "name": "Jesse Colon",
+        "email": "mySmileIsBiggerThanYours@gmail.com",
+        "description": "Hey! I look forward to working with you! Maybe afterwards lets go out for a virtual icecream?",
+        "password": "passwordItsAllGoodBro"
+    },
+    {
+        "name": "Kat Gorecki",
+        "email": "fabulouslyFab@gmail.com",
+        "description": "I do this on the side(its not my main thing). I can make you fabulous, just... work hard? lol ",
+        "password": "passwordWhatever"
+    },
+    {
+        "name": "Nolan Kreiger",
+        "email": "kreigerTheGoat@gmail.com",
+        "description": "50/50 shot you'll see my face. Even still, we'll work through the problems together.",
         "password": "password12345"
     },
     {
-        "name": "LernantinoTUTOR",
-        "email": "lernantinolTUTOR@gmail.com",
-        "description": "asdajhfdkbu",
-        "password": "password12345"
+        "name": "Owen Warner",
+        "email": "iNeedNewWebcam@gmail.com",
+        "description": "You'll never see my face but I swear I know my stuff",
+        "password": "passwordFacelessGrace"
     },
     {
-        "name": "johnTUTOR",
-        "email": "johnTUTOR@gmail.com",
-        "description": "dasdajhfdkbudsds",
-        "password": "password12345"
+        "name": "Ryan Ferreira",
+        "email": "flyGuyRy@gmail.com",
+        "description": "Yo! Listen, all we gotta do is stufy for an hour, THEN we can chill and watch anime! Sound good?",
+        "password": "passwordILOVESLIME"
     },
     {
-        "name": "joeTUTOR",
-        "email": "joeTUTOR@gmail.com",
-        "description": "cdcasdajhfdsdsdsdkbu",
-        "password": "password12345"
+        "name": "Devin Nunez",
+        "email": "iWorkTooHard@gmail.com",
+        "description": "I might've gotten banned from using tutors and somehow my hw was detected for plagierism... BUT ITS BECAUSE IM SO GOOD AT WHAT I DO!",
+        "password": "passwordWhyIsItAlwaysMe"
+    },
+    {
+        "name": "Forrest King",
+        "email": "iLoveLife@gmail.com",
+        "description": "Hey, I'm Forrest. I've worked in teams before and boy lemme tell you, I was blessed with my partners. Now I have the abilities to help you in any way I can!",
+        "password": "passwordFullstackMoreLikeLifeHack"
+    },
+    {
+        "name": "Michael Prevost",
+        "email": "iLikeToTalk@gmail.com",
+        "description": "Yo! I love to talk and crack jokes even when I'm supposed to be learning! I still feel like I don't know much, so we'll learn together friend!",
+        "password": "passwordMyTypingIsntThatSlow"
     }
 ]

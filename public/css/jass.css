@@ -1,15 +1,54 @@
 :root {
-  --header-color: blue;
+  --header-color: white;
 }
 
 .custom-margin-bottom {
   margin-bottom: 30px; 
 }
 
+.navbar {
+  background-color: #0a131a;
+ color: white;
+}
+
+.custom-button {
+  background-color: #344966;
+  color: white;
+  border-color: white;
+}
+
+.custom-button:hover {
+  background-color: #0a131a;
+  color: white;
+  border-color: white;
+}
+
+a {
+color: white;
+}
+
+.flex-text {
+  color: black;
+}
+
 p {
-  color: brown;
+  color: white;
 }
 
 h2 {
   color: var(--header-color)
+}
+
+.review-box {
+  background-color: #F0F4EF;
+  border-radius: 20px;
+}
+
+.review-box-testy {
+  background-color: #0D1821;
+  height: 100vh;
+}
+.review-box-test {
+  background-color: #344966;
+  height: 100vh;
 }
