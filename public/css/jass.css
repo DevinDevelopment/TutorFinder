@@ -42,12 +42,20 @@ color: white;
   color: black;
 }
 
+.flex-prof {
+  color: white;
+}
+
 p {
   color: white;
 }
 
+h1 {
+  color: white;
+}
+
 h2 {
-  color: var(--header-color)
+  color: var(--header-color);
 }
 
 .review-box {
@@ -62,4 +70,10 @@ h2 {
 .review-box-test {
   background-color: #344966;
   height: 100vh;
+}
+
+.review-box-profile {
+  background-color: #152736;
+  color: white;
+  border-radius: 20px;
 }
