@@ -2,19 +2,81 @@ const router = require('express').Router();
 const { Tutor, Review } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/', async (req, res) => {
-  try {
-    const tutorData = await Tutor.findAll({
-      attributes: ['id', 'name'],
-      //order: ['name', 'DESC'],
-    });
+// router.get('/', async (req, res) => {
+//   try {
+//     const tutorData = await Tutor.findAll({
+//       attributes: ['id', 'name'],
+//       //order: ['name', 'DESC'],
+//     });
     
-    const tutors = tutorData.map((tutor) =>
-      tutor.get({ plain: true})
-    );
-    res.render('tutors', { tutors });
+//     const tutors = tutorData.map((tutor) =>
+//       tutor.get({ plain: true})
+//     );
+//     res.render('tutors', { tutors });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
+router.post('/', async (req, res) => {
+  try {
+    const tutorData = await Tutor.create(req.body);
+
+    req.session.save(() => {
+      req.session.user_id = tutorData.id;
+      req.session.logged_in = true;
+
+      res.status(200).json(tutorData);
+    });
   } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.post('/login', async (req, res) => {
+  try {
+    const tutorData = await Tutor.findOne({
+      where: {
+        email: req.body.email,
+      },
+    });
+
+    if (!tutorData) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password. Please try again!' });
+      return;
+    }
+
+    const validPassword = await tutorData.checkPassword(req.body.password);
+
+    if (!validPassword) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password. Please try again!' });
+      return;
+    }
+
+    req.session.save(() => {
+      req.session.loggedIn = true;
+
+      res
+        .status(200)
+        .json({ user: tutorData, message: 'You are now logged in!' });
+    });
+  } catch (err) {
+    console.log(err);
     res.status(500).json(err);
+  }
+});
+
+router.post('/logout', (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
   }
 });
 
@@ -72,7 +134,6 @@ router.post('/:id', withAuth, async (req, res) => {
   } catch (err) {
     res.status(400).json(err);
   }
-  
 });
 
 module.exports = router;

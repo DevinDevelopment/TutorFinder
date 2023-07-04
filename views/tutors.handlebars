@@ -1,8 +1,9 @@
 <div class="">
       {{#each tutors as |tutor|}}
     <div class="">
-      <div class=""></div>
-        <h4>{{tutor.name}}</h4>
+      <div class="">
+        <a href="/tutor/{{id}}">{{tutor.name}}</a>
+        {{!-- <h4>{{tutor.name}}</h4> --}}
         <br>
       </div>
       {{/each}}
