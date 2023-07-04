@@ -41,8 +41,7 @@ const tutorLoginFormHandler = async (event) => {
         alert(response.statusText);
       }
     }
-  };
-  
+  };    
   document
     .querySelector('.tutor-login-form')
     .addEventListener('submit', tutorLoginFormHandler);

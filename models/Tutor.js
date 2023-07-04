@@ -39,6 +39,10 @@ Tutor.init(
         len: [8],
       },
     },
+    // image: { 
+    //   type: DataTypes.STRING,
+    //   allowNull: true 
+    // },
   },
   {
     hooks: {

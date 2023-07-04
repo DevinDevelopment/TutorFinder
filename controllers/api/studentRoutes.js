@@ -39,7 +39,7 @@ const { User } = require('../../models');
   
       req.session.save(() => {
         req.session.user_id = studentData.id;
-        // req.session.logged_in = true;
+        req.session.logged_in = true;
         res.status(200).json(studentData);
       });
     } catch (err) {
@@ -77,6 +77,7 @@ const { User } = require('../../models');
         res
           .status(200)
           .json({ user: studentData, message: 'You are now logged in!' });
+          console.log("signed in!")
       });
     } catch (err) {
       console.log(err);

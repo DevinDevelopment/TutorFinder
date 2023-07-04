@@ -5,7 +5,6 @@ const tutorRoutes = require('./tutorRoutes');
 
 router.use('/student', studentRoutes);
 router.use('/tutor', tutorRoutes);
-// router.use('/login', loginRoutes);
 
 
 module.exports = router;

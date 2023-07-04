@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
     // Pass serialized data and session flag into template
     res.render('homepage', { 
       reviews, 
-      // logged_in: req.session.logged_in 
+      logged_in: req.session.logged_in 
     });
   } catch (err) {
     res.status(500).json(err);
@@ -39,11 +39,13 @@ router.get('/tutors', async (req, res) => {
     const tutors = tutorData.map((tutor) =>
       tutor.get({ plain: true})
     );
-    res.render('tutors', { tutors });
+    res.render('tutors', { tutors, logged_in: req.session.logged_in });
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
+// ------ tutor profile route '/tutors/profile
 
 // ------ Student login routes
 
@@ -70,5 +72,19 @@ router.get('/tutorLogin', async (req, res) => {
     res.status(500).json(err);
   }
 });
-  
+
+router.get('/tutor/:id', async (req, res) => {
+  try {
+    const tutorData = await Tutor.findByPk(req.params.id, {
+      include: { model: Review },
+    });
+
+    const tutor = tutorData.get({ plain: true });
+    res.render('tutor', { tutor });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
