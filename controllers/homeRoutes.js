@@ -90,11 +90,15 @@ router.get('/tutor/:id', async (req, res) => {
 router.get('/profile', async (req, res) => {
   try {
     const userId = req.session.user_id;
-    const userProfile = await User.findbyPk({ userId,
-      include: [ model:]})
+    const userProfile = await User.findbyPk( userId, {
+      include: ['id','username','email','description']});
+
+    const user = userProfile.get({ plain: true });
+    res.render('userProfile', { user });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
   }
-
-
 });
 
 module.exports = router;
