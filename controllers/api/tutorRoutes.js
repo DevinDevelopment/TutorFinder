@@ -104,22 +104,22 @@ router.get('/:id', async (req, res) => {
   // }
 });
 
-router.get('/:id/reviews', async (req, res) => {
-  try {
-    const tutorReviews = await Review.findAll({
-      where: { tutor_id: req.params.id },
-      attributes: ['id', 'title', 'text', 'user_id'],
-    });
+// router.get('/:id/reviews', async (req, res) => {
+//   try {
+//     const tutorReviews = await Review.findAll({
+//       where: { tutor_id: req.params.id },
+//       attributes: ['id', 'title', 'text', 'user_id'],
+//     });
     
-  const tutorReview = tutorReviews.map((tutor) =>
-    tutor.get({ plain: true})
-  );
-  res.render('tutorReview', { tutorReview });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+//   const tutorReview = tutorReviews.map((tutor) =>
+//     tutor.get({ plain: true})
+//   );
+//   res.render('tutorReview', { tutorReview });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
 router.post('/:id', withAuth, async (req, res) => {
   try {
