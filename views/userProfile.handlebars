@@ -1,4 +1,38 @@
-    <h1>Hello {{username}}</h1>
-    <p>Email: {{email}}</p>
-    <label for="description">Description:</label>
-    <textarea id="description" name ="description">{{description}}</textarea>
+<div class="reviews-container">
+  <div class="row">
+    <div class="review-box-testy col-md-6">
+      <!-- profile picture -->
+      <div class="profile-picture d-flex justify-content-center align-items-center">
+        <img class="profile-pic mt-5" src="/images/blankprofile.png" alt="Blank profile picture">
+      </div>
+
+      <div class="profile-picture"></div>
+
+      <div class="review-box-profile d-flex flex-column justify-content-center align-items-center custom-margin-bottom mb-3 mt-5 mr-5 ml-5">
+        <div class="review-box-content d-flex flex-column justify-content-center">
+          <h3 class="mb-2 ml-4 mt-3">Name:</h3>
+          <h4 class="mb-5 ml-4">{{user.name}}</h4>
+          <h3 class="mb-2 ml-4">Email:</h3>
+          <h4 class="mb-5 ml-4">{{user.email}}</h4>
+          <h3 class="flex-text-prof mb-2 ml-4">About Me:</h3>
+          <h4 class="flex-text-prof mb-4 ml-4 mr-4">{{user.description}}</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-box-test col-md-6">
+      <div class="d-flex justify-content-center">
+        <h1 class="my-5">Reviews:</h1>
+      </div>
+      {{!-- {{#each tutorReview as |review|}}
+        <div class="review-box d-flex flex-column justify-content-center align-items-center custom-margin-bottom mb-3 mt-5 mr-5 ml-5">
+          <div class="review-box-content d-flex flex-column justify-content-center align-items-center text-center">
+            <h3 class="mb-3">{{review.title}}</h3>
+            <h4 class="mb-3">{{review.user_id}}</h4>
+            <p class="flex-text mb-5">{{review.text}}</p>
+          </div>
+        </div>
+      {{/each}} --}}
+    </div>
+  </div>
+</div>
