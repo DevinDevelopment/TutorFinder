@@ -73,6 +73,8 @@ router.get('/tutorLogin', async (req, res) => {
   }
 });
 
+// ----- Tutor page route
+
 router.get('/tutor/:id', async (req, res) => {
   try {
     const tutorData = await Tutor.findByPk(req.params.id, {
@@ -86,6 +88,8 @@ router.get('/tutor/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+// ----- Profile page route
 
 router.get('/profile', async (req, res) => {
   try {
