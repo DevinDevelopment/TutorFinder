@@ -94,7 +94,7 @@ router.get('/tutor/:id', async (req, res) => {
 router.get('/profile', async (req, res) => {
   try {
     const userId = req.session.user_id;
-    const userProfile = await User.findbyPk( userId, {
+    const userProfile = await User.findByPk( userId, {
       include: { model: Review }
     });
 
