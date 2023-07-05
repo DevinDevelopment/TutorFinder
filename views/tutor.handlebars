@@ -21,15 +21,30 @@
     </div>
 
     <div class="review-box-test col-md-6">
-      <div class="d-flex justify-content-center">
-        <h1 class="my-5">Reviews:</h1>
+      <div class="text-bubble">
+        <h3 class="mt-4 text-white">Leave a Review</h3>
+        <form action="/tutors/{{tutor.id}}" method="POST">
+          <div class="form-group">
+            <label class="text-white" for="title">Title</label>
+            <input type="text" class="form-control" id="title" name="title">
+          </div>
+          <div class="form-group">
+            <label class="text-white" for="text">Review</label>
+            <textarea class="form-control" id="text" name="text" rows="5"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary mt-3 submit-button">Submit Review</button>
+        </form>
+      </div>
+
+      <div class="d-flex justify-content-center ">
+        <h1 class="">Reviews:</h1>
       </div>
       {{#each tutor.reviews as |review|}}
         <div class="review-box d-flex flex-column justify-content-center align-items-center custom-margin-bottom mb-3 mt-5 mr-5 ml-5">
           <div class="review-box-content d-flex flex-column justify-content-center align-items-center text-center">
-            <h3 class="mb-3">{{review.title}}</h3>
-            <h4 class="mb-3">{{review.user_id}}</h4>
-            <p class="flex-text mb-5">{{review.text}}</p>
+            <h3 class="mb-3 mt-3">{{review.title}}</h3>
+            <h4 class="mb-3">{{review.User.name}}</h4>
+            <p class="flex-text mb-5 ml-3 mr-3">{{review.text}}</p>
           </div>
         </div>
       {{/each}}
