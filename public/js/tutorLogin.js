@@ -14,7 +14,7 @@ const tutorLoginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/');
+      document.location.replace('/tutorshomepage');
     } else {
       alert('Failed to log in.');
     }

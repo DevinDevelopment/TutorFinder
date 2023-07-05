@@ -1,6 +1,14 @@
-function tutorTracker() {
-    var tutor = $(".searchButton").val();
-    // alert(tutor);
+const tutorTracker = async () =>  {
+  var tutorName = document.querySelector('#Search').value.trim();
+  const response = await fetch('/tutorprofile', {
+    method: 'GET'
+  });
+
+  // if (response.ok) {
+  
+  // } else {
+  //   alert('Tutor not found');
+  // }
 };
 
 const logout = async () => {
@@ -19,4 +27,5 @@ const logout = async () => {
   tutorTracker();
 
   document.querySelector('#logout').addEventListener('click', logout);
+  document.querySelector('#searchBttn').addEventListener('click', tutorTracker);
   
