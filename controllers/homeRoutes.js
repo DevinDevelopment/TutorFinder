@@ -73,6 +73,8 @@ router.get('/tutorLogin', async (req, res) => {
   }
 });
 
+// ----- Tutor page route
+
 router.get('/tutor/:id', async (req, res) => {
   try {
     const tutorData = await Tutor.findByPk(req.params.id, {
@@ -81,6 +83,23 @@ router.get('/tutor/:id', async (req, res) => {
 
     const tutor = tutorData.get({ plain: true });
     res.render('tutor', { tutor });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+// ----- Profile page route
+
+router.get('/profile', async (req, res) => {
+  try {
+    const userId = req.session.user_id;
+    const userProfile = await User.findByPk( userId, {
+      include: { model: Review }
+    });
+
+    const user = userProfile.get({ plain: true });
+    res.render('userProfile', { user });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
