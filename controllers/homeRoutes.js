@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 
     // Serialize data so the template can read it
     const reviews = reviewData.map((review) => review.get({ plain: true }));
-    console.log(reviews);
+    // console.log(reviews);
     // Pass serialized data and session flag into template
     res.render('homepage', { 
       reviews, 
@@ -27,7 +27,30 @@ router.get('/', async (req, res) => {
   }
 });
 
-// ------ All tutors page routes
+// ------ tutors page
+
+router.get('/tutorshomepage', async (req, res) => {
+  try {
+    const reviewData = await Review.findAll({
+      include: [{ model: Tutor }, { model: User }],
+      order: [
+        [sequelize.literal('RAND()')]
+      ],
+      limit: 3,
+    });
+
+    // Serialize data so the template can read it
+    const reviews = reviewData.map((review) => review.get({ plain: true }));
+    // Pass serialized data and session flag into template
+    res.render('tutorsHomepage', { 
+      reviews, 
+      logged_in: req.session.logged_in ,
+      layout: 'main2'
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 router.get('/tutors', async (req, res) => {
   try {
@@ -44,8 +67,6 @@ router.get('/tutors', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-// ------ tutor profile route '/tutors/profile
 
 // ------ Student login routes
 
@@ -91,22 +112,37 @@ router.get('/tutor/:id', async (req, res) => {
 
 // ----- Profile page route
 
-// router.get('/profile', async (req, res) => {
-//   try {
-//     const userId = req.session.user_id;
-//     const userProfile = await User.findByPk( userId, {
-//       include: { model: Review }
-//     });
-
-//     const user = userProfile.get({ plain: true });
-//     res.render('userProfile', { user });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
-
 router.get('/profile', async (req, res) => {
+  try {
+    const userId = req.session.user_id;
+    const userProfile = await User.findByPk( userId, {
+      include: { model: Review }
+    });
+
+    const user = userProfile.get({ plain: true });
+    res.render('userProfile', { user });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get('/tutorprofile', async (req, res) => {
+  try {
+    const userId = req.session.user_id;
+    const userProfile = await Tutor.findByPk( userId, {
+      include: { model: Review }
+    });
+
+    const user = userProfile.get({ plain: true });
+    res.render('userProfile', { user });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get('/tutor', async (req, res) => {
   try {
     const userProfile = await User.findOne({ where: { name: tutorName} });
 

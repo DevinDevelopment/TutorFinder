@@ -1,16 +1,14 @@
 const tutorTracker = async () =>  {
   var tutorName = document.querySelector('#Search').value.trim();
-  const response = await fetch('/', {
-    method: 'GET',
-    body: JSON.stringify({ email, password }),
-    headers: { 'Content-Type': 'application/json' },
+  const response = await fetch('/tutorprofile', {
+    method: 'GET'
   });
 
-  if (response.ok) {
-    document.location.replace('/profile');
-  } else {
-    alert('Failed to log in.');
-  }
+  // if (response.ok) {
+  
+  // } else {
+  //   alert('Tutor not found');
+  // }
 };
 
 const logout = async () => {
