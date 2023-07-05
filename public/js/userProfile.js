@@ -26,7 +26,7 @@ const profileAddDescriptionHandler = async (event) => {
 
   const response = await fetch('/api/student/description', {
     method: 'POST',
-    body: JSON.stringify({ desc }),
+    body: JSON.stringify( desc ),
     headers: { 'Content-Type': 'application/json' },
   });
   if (response.ok) {
@@ -37,3 +37,7 @@ const profileAddDescriptionHandler = async (event) => {
 };
 
 profilePageHandler();
+
+document
+.querySelector('.description-form')
+.addEventListener('submit', profileAddDescriptionHandler);

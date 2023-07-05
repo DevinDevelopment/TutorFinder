@@ -89,8 +89,9 @@ const { User } = require('../../models');
 router.post('/description', async (req, res) => {
   try {
     const userId = req.session.user_id;
-    const desc = req.body;
-    const descriptionData = await User.update({description: desc }, {where: {id : userId}});
+    const descriptionData = await User.update( {description: req.body}, 
+      {where: {id : userId}}
+      );
 
     res.status(200).json(descriptionData);
   } catch (err) {
