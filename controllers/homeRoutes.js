@@ -91,12 +91,24 @@ router.get('/tutor/:id', async (req, res) => {
 
 // ----- Profile page route
 
+// router.get('/profile', async (req, res) => {
+//   try {
+//     const userId = req.session.user_id;
+//     const userProfile = await User.findByPk( userId, {
+//       include: { model: Review }
+//     });
+
+//     const user = userProfile.get({ plain: true });
+//     res.render('userProfile', { user });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
+
 router.get('/profile', async (req, res) => {
   try {
-    const userId = req.session.user_id;
-    const userProfile = await User.findByPk( userId, {
-      include: { model: Review }
-    });
+    const userProfile = await User.findOne({ where: { name: tutorName} });
 
     const user = userProfile.get({ plain: true });
     res.render('userProfile', { user });
