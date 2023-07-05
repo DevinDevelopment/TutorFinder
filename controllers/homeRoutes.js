@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Review, User, Tutor } = require('../models');
 const sequelize = require('../config/connection');
 
-// ------ main page routes
+// ------ homepage when (signedout) / (student signed in)
 
 router.get('/', async (req, res) => {
   try {
@@ -14,10 +14,8 @@ router.get('/', async (req, res) => {
       limit: 3,
     });
 
-    // Serialize data so the template can read it
     const reviews = reviewData.map((review) => review.get({ plain: true }));
-    // console.log(reviews);
-    // Pass serialized data and session flag into template
+
     res.render('homepage', { 
       reviews, 
       logged_in: req.session.logged_in 
@@ -27,7 +25,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// ------ tutors page
+// ------ tutors home page
 
 router.get('/tutorshomepage', async (req, res) => {
   try {
@@ -39,9 +37,8 @@ router.get('/tutorshomepage', async (req, res) => {
       limit: 3,
     });
 
-    // Serialize data so the template can read it
     const reviews = reviewData.map((review) => review.get({ plain: true }));
-    // Pass serialized data and session flag into template
+
     res.render('tutorsHomepage', { 
       reviews, 
       logged_in: req.session.logged_in ,
@@ -110,13 +107,14 @@ router.get('/tutor/:id', async (req, res) => {
   }
 });
 
-// ----- Profile page route
+// ----- Student profile
 
 router.get('/profile', async (req, res) => {
   try {
     const userId = req.session.user_id;
     const userProfile = await User.findByPk( userId, {
-      include: { model: Review }
+      include: { model: Review },
+      layout: 'main'
     });
 
     const user = userProfile.get({ plain: true });
@@ -126,22 +124,26 @@ router.get('/profile', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+// ----- Tutor profile
 
 router.get('/tutorprofile', async (req, res) => {
   try {
-    const userId = req.session.user_id;
-    const userProfile = await Tutor.findByPk( userId, {
-      include: { model: Review }
+    const tutorId = req.session.user_id;
+    const tutorProfile = await Tutor.findByPk( tutorId, {
+      include: { model: Review },
+      layout: 'main2'
     });
 
-    const user = userProfile.get({ plain: true });
-    res.render('userProfile', { user });
+    const tutor = tutorProfile.get({ plain: true });
+    res.render('tutorprofile', { tutor });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
 
+// ------ Search bar route
 router.get('/tutor', async (req, res) => {
   try {
     const userProfile = await User.findOne({ where: { name: tutorName} });
