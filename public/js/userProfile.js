@@ -19,4 +19,21 @@ const profilePageHandler = async () => {
   }
 };
 
+const profileAddDescriptionHandler = async (event) => {
+  event.preventDefault();
+
+  const desc = document.querySelector('#user-add-desc').value.trim();
+
+  const response = await fetch('/api/student/description', {
+    method: 'POST',
+    body: JSON.stringify({ desc }),
+    headers: { 'Content-Type': 'application/json' },
+  });
+  if (response.ok) {
+    document.location.replace('/profile');
+  } else {
+    alert(response.statusText);
+  }
+};
+
 profilePageHandler();
