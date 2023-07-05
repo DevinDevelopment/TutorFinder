@@ -77,7 +77,20 @@ const { User } = require('../../models');
     }
   });
 
+// ------- Student update description
 
+router.post('/description', async (req, res) => {
+  try {
+    const userId = req.session.user_id;
+    const descriptionData = await User.update( {description: req.body}, 
+      {where: {id : userId}}
+      );
+
+    res.status(200).json(descriptionData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 // });
 
 module.exports = router;

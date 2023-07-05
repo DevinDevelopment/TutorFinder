@@ -91,6 +91,18 @@ router.get('/tutorLogin', async (req, res) => {
   }
 });
 
+router.get('/tutorProfile', async (req, res) => {
+  try {
+    res.render('homepage', {
+        layout: 'mainTutor'
+    });
+
+    // res.status(200).json(tutorData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 // ----- Tutor page route
 
 router.get('/tutor/:id', async (req, res) => {
