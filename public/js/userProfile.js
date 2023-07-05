@@ -25,7 +25,7 @@ const profileAddDescriptionHandler = async (event) => {
   const desc = document.querySelector('#user-add-desc').value.trim();
 
   const response = await fetch('/api/student/description', {
-    method: 'POST',
+    method: 'PUT',
     body: JSON.stringify( desc ),
     headers: { 'Content-Type': 'application/json' },
   });

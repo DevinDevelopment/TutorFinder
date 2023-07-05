@@ -79,12 +79,16 @@ const { User } = require('../../models');
 
 // ------- Student update description
 
-router.post('/description', async (req, res) => {
+router.put('/description', async (req, res) => {
   try {
     const userId = req.session.user_id;
-    const descriptionData = await User.update( {description: req.body}, 
-      {where: {id : userId}}
-      );
+
+    const descriptionData = await User.findOne({
+      where: {
+        id: userId,
+      },
+    });
+    descriptionData.update({description: req.body})
 
     res.status(200).json(descriptionData);
   } catch (err) {
