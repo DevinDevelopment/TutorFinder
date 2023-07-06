@@ -93,8 +93,8 @@ router.get('/tutorLogin', async (req, res) => {
 
 router.get('/tutorProfile', async (req, res) => {
   try {
-    res.render('homepage', {
-        layout: 'mainTutor'
+    res.render('tutorProfile', {
+        layout: 'main2'
     });
 
     // res.status(200).json(tutorData);
@@ -148,7 +148,7 @@ router.get('/tutorprofile', async (req, res) => {
     });
 
     const tutor = tutorProfile.get({ plain: true });
-    res.render('tutorprofile', { tutor });
+    res.render('tutorProfile', { tutor });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

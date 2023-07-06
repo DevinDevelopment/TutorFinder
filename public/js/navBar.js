@@ -1,6 +1,6 @@
 const tutorTracker = async () =>  {
   var tutorName = document.querySelector('#Search').value.trim();
-  const response = await fetch('/tutorprofile', {
+  const response = await fetch('/tutorProfile', {
     method: 'GET'
   });
 

@@ -83,6 +83,11 @@ router.put('/description', async (req, res) => {
   try {
     const userId = req.session.user_id;
 
+    // const descriptionData = await User.update({description: req.body},
+    //   { where: {
+    //     id: userId,
+    //   },
+    // });
     const descriptionData = await User.findOne({
       where: {
         id: userId,

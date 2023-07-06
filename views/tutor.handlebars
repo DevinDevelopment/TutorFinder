@@ -16,6 +16,19 @@
           <h4 class="mb-5 ml-4">{{tutor.email}}</h4>
           <h3 class="flex-text-prof mb-2 ml-4">About Me:</h3>
           <h4 class="flex-text-prof mb-4 ml-4 mr-4">{{tutor.description}}</h4>
+          {{#if logged_in}}
+          <h2 class="mb-2 ml-4">Write a review:</h2>
+          <form class="form description-form">
+            <div class="form-group row">
+            <div class="col-sm-9">
+          <input class="form-control" type="text" id="user-add-desc" />
+          <div class="form-group">
+            <button class="btn btn-primary mt-3" type="submit">Submit</button>
+          </div>
+          </form>
+          {{else}}
+          <h2 class="mb-2 ml-4">Login to write a review!</h2>
+          {{/if}}
         </div>
       </div>
     </div>
