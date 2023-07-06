@@ -65,8 +65,8 @@ const { User } = require('../../models');
         res.status(400).json({ message: 'Incorrect email or password. Please try again!' });
         return;
       }
-  
       req.session.save(() => {
+        req.session.user_id = studentData.id;
         req.session.loggedIn = true;
         res.status(200).json({ user: studentData, message: 'You are now logged in!' });
           console.log("signed in!")
@@ -79,10 +79,11 @@ const { User } = require('../../models');
 
 // ------- Student update description
 
-router.post('/description', async (req, res) => {
+router.put('/description', async (req, res) => {
   try {
     const userId = req.session.user_id;
-    const descriptionData = await User.update( {description: req.body}, 
+    console.log("hello");
+    const descriptionData = await User.update({ description: req.body.desc}, 
       {where: {id : userId}}
       );
 

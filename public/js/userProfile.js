@@ -22,11 +22,11 @@ const profilePageHandler = async () => {
 const profileAddDescriptionHandler = async (event) => {
   event.preventDefault();
 
-  const desc = document.querySelector('#user-add-desc').value.trim();
+  const desc = document.querySelector('#user-add-desc').value;
 
   const response = await fetch('/api/student/description', {
-    method: 'POST',
-    body: JSON.stringify( desc ),
+    method: 'PUT',
+    body: JSON.stringify({ desc }),
     headers: { 'Content-Type': 'application/json' },
   });
   if (response.ok) {
@@ -39,5 +39,5 @@ const profileAddDescriptionHandler = async (event) => {
 profilePageHandler();
 
 document
-.querySelector('.description-form')
-.addEventListener('submit', profileAddDescriptionHandler);
+.querySelector('#description-bttn')
+.addEventListener('click', profileAddDescriptionHandler);
