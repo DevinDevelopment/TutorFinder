@@ -16,19 +16,6 @@
           <h4 class="mb-5 ml-4">{{tutor.email}}</h4>
           <h3 class="flex-text-prof mb-2 ml-4">About Me:</h3>
           <h4 class="flex-text-prof mb-4 ml-4 mr-4">{{tutor.description}}</h4>
-          {{#if logged_in}}
-          <h2 class="mb-2 ml-4">Write a review:</h2>
-          <form class="form description-form">
-            <div class="form-group row">
-            <div class="col-sm-9">
-          <input class="form-control" type="text" id="user-add-desc" />
-          <div class="form-group">
-            <button class="btn btn-primary mt-3" type="submit">Submit</button>
-          </div>
-          </form>
-          {{else}}
-          <h2 class="mb-2 ml-4">Login to write a review!</h2>
-          {{/if}}
         </div>
       </div>
     </div>
@@ -36,16 +23,17 @@
     <div class="review-box-test col-md-6">
       <div class="text-bubble">
         <h3 class="mt-4 text-white">Leave a Review</h3>
-        <form action="/tutors/{{tutor.id}}" method="POST">
+        <form class="form review-form">
           <div class="form-group">
             <label class="text-white" for="title">Title</label>
-            <input type="text" class="form-control" id="title" name="title">
+            <input type="text" class="form-control" id="review-title" name="title">
           </div>
           <div class="form-group">
             <label class="text-white" for="text">Review</label>
-            <textarea class="form-control" id="text" name="text" rows="5"></textarea>
+            <input type="text" class="form-control" id="user-add-review" name="title">
+            {{!-- <textarea class="form-control" id="text" name="text" rows="5" id="user-add-review"></textarea> --}}
           </div>
-          <button type="submit" class="btn btn-primary mt-3 submit-button">Submit Review</button>
+            <button type="submit" class="btn btn-primary mt-3 submit-button" id="submit-review-bttn">Submit Review</button>
         </form>
       </div>
 
