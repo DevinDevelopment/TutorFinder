@@ -77,6 +77,14 @@ router.get('/:id', async (req, res) => {
   try {
     const tutorProfile = await Tutor.findByPk(req.params.id, {
       attributes: ['id', 'name', 'email', 'description'],
+      include: {
+        model: Review,
+        attributes: ['id', 'title', 'text', 'user_id'],
+      include: {
+        model: User,
+        attributes: ['name'],
+      }
+      }
     });
   const tutor = tutorProfile.get({ plain: true});
   res.render('tutor', { tutor });

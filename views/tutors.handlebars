@@ -1,11 +1,14 @@
-<div class="">
-      {{#each tutors as |tutor|}}
-    <div class="">
-      <div class="">
-        <a href="/tutor/{{id}}">{{tutor.name}}</a>
-        {{!-- <h4>{{tutor.name}}</h4> --}}
-        <br>
-      </div>
-      {{/each}}
-      </div>
+<div class="tutors-container">
+  <div class="row justify-content-center">
+    <div class="col-md-12 d-flex flex-column align-items-center">
+      <h3 class="text-center mt-4 mb-4 display-4 text-white tutor-title">Tutors:</h3>
+      <ul class="list-unstyled d-flex flex-wrap justify-content-center">
+        {{#each tutors as |tutor|}}
+          <li class="mr-4 mb-3">
+            <a href="/tutor/{{id}}" class="display-4 tutor-names">{{tutor.name}}</a><span class="comma">,</span>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
   </div>
+</div>
