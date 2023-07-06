@@ -1,6 +1,20 @@
 const router = require('express').Router();
 const { Tutor, Review } = require('../../models');
 const withAuth = require('../../utils/auth');
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'public/images'); // Set the destination folder for storing the uploaded images
+  },
+  filename: function (req, file, cb) {
+    // Generate a unique filename by adding a timestamp to the original filename
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
+    cb(null, file.fieldname + '-' + uniqueSuffix);
+  },
+});
+
+const upload = multer({ storage: storage });
 
 // router.get('/', async (req, res) => {
 //   try {
@@ -18,14 +32,18 @@ const withAuth = require('../../utils/auth');
 //   }
 // });
 
-router.post('/', async (req, res) => {
+router.post('/', upload.single('profilePicture'), async (req, res) => {
   try {
-    const tutorData = await Tutor.create(req.body);
+    const profilePicturePath = req.file ? req.file.filename : null; // Retrieve the profile picture path
+
+    const tutorData = await Tutor.create({
+      ...req.body,
+      profilePicture: profilePicturePath, // Assign the profile picture path to the tutor record
+    });
 
     req.session.save(() => {
       req.session.user_id = tutorData.id;
       req.session.logged_in = true;
-
       res.status(200).json(tutorData);
     });
   } catch (err) {
