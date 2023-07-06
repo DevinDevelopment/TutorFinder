@@ -22,16 +22,17 @@
     <div class="review-box-test col-md-6">
       <div class="text-bubble">
         <h3 class="mt-4 text-white">Leave a Review</h3>
-        <form action="/tutors/{{tutor.id}}" method="POST">
+        <form class="form review-form">
           <div class="form-group">
             <label class="text-white" for="title">Title</label>
-            <input type="text" class="form-control" id="title" name="title">
+            <input type="text" class="form-control" id="review-title" name="title">
           </div>
           <div class="form-group">
             <label class="text-white" for="text">Review</label>
-            <textarea class="form-control" id="text" name="text" rows="5"></textarea>
+            <input type="text" class="form-control" id="user-add-review" name="title">
+            {{!-- <textarea class="form-control" id="text" name="text" rows="5" id="user-add-review"></textarea> --}}
           </div>
-          <button type="submit" class="btn btn-primary mt-3 submit-button">Submit Review</button>
+            <button type="submit" class="btn btn-primary mt-3 submit-button" id="submit-review-bttn">Submit Review</button>
         </form>
       </div>
 

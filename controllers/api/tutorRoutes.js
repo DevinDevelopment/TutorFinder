@@ -140,8 +140,9 @@ router.get('/:id', async (req, res) => {
 //   }
 // });
 
-router.post('/:id', withAuth, async (req, res) => {
+router.post('/:id/addReview', async (req, res) => {
   try {
+    console.log('post test');
     const newReview = await Review.create({
       title: req.body.title,
       text: req.body.text,
@@ -154,5 +155,21 @@ router.post('/:id', withAuth, async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+// router.post('/:id', withAuth, async (req, res) => {
+//   try {
+//     console.log('post test');
+//     const newReview = await Review.create({
+//       title: req.body.title,
+//       text: req.body.text,
+//       tutor_id: req.params.id,
+//       user_id: req.session.user_id,
+//     });
+
+//     res.status(200).json(newReview);
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
 
 module.exports = router;
