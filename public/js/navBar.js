@@ -13,8 +13,8 @@
 // };
 
 const logout = async () => {
-  const response = await fetch('/api/tutor/logout', {
-    method: 'POST',
+  const response = await fetch('/api/logout', {
+    method: 'GET',
     headers: { 'Content-Type': 'application/json' },
   });
 
