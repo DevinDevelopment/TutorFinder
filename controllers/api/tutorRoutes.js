@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Tutor, Review } = require('../../models');
 const withAuth = require('../../utils/auth');
-const multer = require('./multer');
+const multer = require('multer');
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
