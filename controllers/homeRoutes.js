@@ -100,7 +100,7 @@ router.get('/tutor/:id', async (req, res) => {
     });
 
     const tutor = tutorData.get({ plain: true });
-    res.render('tutor', { tutor });
+    res.render('tutor', { tutor, logged_in: req.session.logged_in });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
