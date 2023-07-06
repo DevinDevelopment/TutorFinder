@@ -55,7 +55,6 @@ router.post('/login', async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
-
       res.status(200).json({ user: tutorData, message: 'You are now logged in!' });
     });
   } catch (err) {
@@ -78,6 +77,14 @@ router.get('/:id', async (req, res) => {
   try {
     const tutorProfile = await Tutor.findByPk(req.params.id, {
       attributes: ['id', 'name', 'email', 'description'],
+      include: {
+        model: Review,
+        attributes: ['id', 'title', 'text', 'user_id'],
+      include: {
+        model: User,
+        attributes: ['name'],
+      }
+      }
     });
   const tutor = tutorProfile.get({ plain: true});
   res.render('tutor', { tutor });

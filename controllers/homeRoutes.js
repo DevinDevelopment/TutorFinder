@@ -91,18 +91,6 @@ router.get('/tutorLogin', async (req, res) => {
   }
 });
 
-router.get('/tutorProfile', async (req, res) => {
-  try {
-    res.render('tutorProfile', {
-        layout: 'main2'
-    });
-
-    // res.status(200).json(tutorData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
 // ----- Tutor page route
 
 router.get('/tutor/:id', async (req, res) => {
@@ -126,11 +114,14 @@ router.get('/profile', async (req, res) => {
     const userId = req.session.user_id;
     const userProfile = await User.findByPk( userId, {
       include: { model: Review },
-      layout: 'main'
+      layout: 'main',
     });
 
     const user = userProfile.get({ plain: true });
-    res.render('userProfile', { user });
+    res.render('userProfile', { 
+      user, 
+      logged_in: req.session.logged_in  
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -144,11 +135,14 @@ router.get('/tutorprofile', async (req, res) => {
     const tutorId = req.session.user_id;
     const tutorProfile = await Tutor.findByPk( tutorId, {
       include: { model: Review },
-      layout: 'main2'
+      layout: 'main'
     });
 
     const tutor = tutorProfile.get({ plain: true });
-    res.render('tutorProfile', { tutor });
+    res.render('tutorprofile', { 
+      tutor,
+      logged_in: req.session.logged_in 
+     });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -156,12 +150,15 @@ router.get('/tutorprofile', async (req, res) => {
 });
 
 // ------ Search bar route
-router.get('/tutor', async (req, res) => {
+router.get('/tutorprofile', async (req, res) => {
   try {
-    const userProfile = await User.findOne({ where: { name: tutorName} });
+    const tutorProfile = await Tutor.findOne({ where: { name: tutorName} });
 
-    const user = userProfile.get({ plain: true });
-    res.render('userProfile', { user });
+    const tutor = tutorProfile.get({ plain: true });
+    res.render('tutorProfile', { 
+      tutor,
+      layout: 'main'
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

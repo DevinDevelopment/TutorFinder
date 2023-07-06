@@ -1,15 +1,16 @@
-const tutorTracker = async () =>  {
-  var tutorName = document.querySelector('#Search').value.trim();
-  const response = await fetch('/tutorProfile', {
-    method: 'GET'
-  });
+// const tutorTracker = async () =>  {
+//   var tutorName = document.querySelector('#Search').value.trim();
+//   const response = await fetch('/tutorprofile', {
+//     method: 'GET',
+//     tutorName
+//   });
 
   // if (response.ok) {
   
   // } else {
   //   alert('Tutor not found');
   // }
-};
+// };
 
 const logout = async () => {
   const response = await fetch('/api/tutor/logout', {
@@ -23,9 +24,7 @@ const logout = async () => {
     alert('Failed to log out.');
   }
 };
-  
-  tutorTracker();
 
   document.querySelector('#logout').addEventListener('click', logout);
-  document.querySelector('#searchBttn').addEventListener('click', tutorTracker);
+  // document.querySelector('#searchBttn').addEventListener('click', tutorTracker);
   

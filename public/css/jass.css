@@ -34,6 +34,19 @@
   border-color: white;
 }
 
+.submit-button {
+  background-color: #152736;
+  color: white;
+  border-color: white;
+  
+}
+
+.submit-button:hover {
+  background-color: #0a131a;
+  color: white;
+  border-color: white;
+}
+
 nav a {
 color: white;
 }
@@ -71,9 +84,43 @@ h2 {
   background-color: #344966;
   height: 100vh;
 }
+.review-box-tutors {
+  background-color: #344966;
+  height: 100vh;
+  width: 100vw;
+}
 
 .review-box-profile {
   background-color: #152736;
   color: white;
   border-radius: 20px;
+}
+
+.text-bubble {
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+}
+
+.comma {
+  font-size: 2rem;
+  margin-left: 10px;
+  color: white;
+}
+
+.tutor-names {
+  color: rgb(255, 255, 255);
+}
+.tutor-names:hover {
+  color: #152736;
+}
+
+.tutors-container {
+  background-color: #344966;;
+  height: 100vh;
+}
+
+.tutor-title {
+  font-weight: 500;
 }
