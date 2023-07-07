@@ -65,32 +65,6 @@ router.get('/tutors', async (req, res) => {
   }
 });
 
-// ------ Student login routes
-
-router.get('/studentLogin', async (req, res) => {
-  try {
-    res.render('studentLogin', {
-        layout: 'login'
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-// ------ Tutor login routes
-
-router.get('/tutorLogin', async (req, res) => {
-  try {
-    res.render('tutorLogin', {
-        layout: 'Login'
-    });
-
-    // res.status(200).json(tutorData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
 // ----- Tutor page route
 
 router.get('/tutor/:id', async (req, res) => {
@@ -161,6 +135,16 @@ router.get('/tutorprofile', async (req, res) => {
     });
   } catch (err) {
     console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get('/login', async (req, res) => {
+  try {
+    res.render('login', {
+        layout: 'login'
+    });
+  } catch (err) {
     res.status(500).json(err);
   }
 });

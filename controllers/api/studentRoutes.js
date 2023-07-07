@@ -30,59 +30,11 @@ const { User } = require('../../models');
 //     res.status(500).json(err);
 //   }
 
-  // ------ Student login routes
-
-  router.post('/', async (req, res) => {
-    try {
-      const studentData = await User.create(req.body);
-  
-      req.session.save(() => {
-        req.session.user_id = studentData.id;
-        req.session.logged_in = true;
-        res.status(200).json(studentData);
-      });
-    } catch (err) {
-      res.status(400).json(err);
-    }
-  });
-
-  router.post('/login', async (req, res) => {
-    try {
-      const studentData = await User.findOne({
-        where: {
-          email: req.body.email,
-        },
-      });
-  
-      if (!studentData) {
-        res.status(400).json({ message: 'Incorrect email or password. Please try again!' });
-        return;
-      }
-  
-      const validPassword = await studentData.checkPassword(req.body.password);
-  
-      if (!validPassword) {
-        res.status(400).json({ message: 'Incorrect email or password. Please try again!' });
-        return;
-      }
-      req.session.save(() => {
-        req.session.user_id = studentData.id;
-        req.session.loggedIn = true;
-        res.status(200).json({ user: studentData, message: 'You are now logged in!' });
-          console.log("signed in!")
-      });
-    } catch (err) {
-      console.log(err);
-      res.status(500).json(err);
-    }
-  });
-
 // ------- Student update description
 
 router.put('/description', async (req, res) => {
   try {
     const userId = req.session.user_id;
-    console.log("hello");
     const descriptionData = await User.update({ description: req.body.desc}, 
       {where: {id : userId}}
       );
