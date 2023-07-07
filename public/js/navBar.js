@@ -13,8 +13,8 @@
 // };
 
 const logout = async () => {
-  const response = await fetch('/api/logout', {
-    method: 'GET',
+  const response = await fetch('/api/login/logout', {
+    method: 'POST',
     headers: { 'Content-Type': 'application/json' },
   });
 
@@ -24,7 +24,8 @@ const logout = async () => {
     alert('Failed to log out.');
   }
 };
+  
+document.querySelector('#logout').addEventListener('click', logout);
 
-  document.querySelector('#logout').addEventListener('click', logout);
-  // document.querySelector('#searchBttn').addEventListener('click', tutorTracker);
+// document.querySelector('#searchBttn').addEventListener('click', tutorTracker);
   
