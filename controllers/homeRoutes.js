@@ -142,7 +142,7 @@ router.get('/tutorprofile', async (req, res) => {
 router.get('/login', async (req, res) => {
   try {
     res.render('login', {
-        layout: 'main'
+        layout: 'LoginNav'
     });
   } catch (err) {
     res.status(500).json(err);
