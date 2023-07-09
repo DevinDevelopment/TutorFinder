@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Review, User, Tutor } = require('../models');
 const sequelize = require('../config/connection');
+const { Op } = require('sequelize');
 
 // ------ homepage when (signedout) / (student signed in)
 
