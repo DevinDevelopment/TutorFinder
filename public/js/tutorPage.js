@@ -14,7 +14,6 @@ const addReviewHandler = async (event) => {
       headers: { 'Content-Type': 'application/json' }, 
     }); 
     if (response.ok) {
-      console.log('post test 1');
       document.location.replace(`/tutor/${tutor_id}`);
     } else {
       console.log('post test bad');
