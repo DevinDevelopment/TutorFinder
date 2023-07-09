@@ -1,126 +1,85 @@
-# 15 Project 2: Interactive Full-Stack Application
-vbyhfuebivwufibevwuhyfiberdvufrdg
-Projects play a key role in your journey to becoming a full-stack web developer. As you enter the last phase of the boot camp, you’ll begin to apply for development jobs. If you want to land interviews, your portfolio must feature high-quality deployed examples of your work—-and you can use your finished projects for that very purpose.
+# README.MD Employee Tracker
 
-As your first opportunity to show employers your collaborative skills and coding abilities, this particular project will be a focal point of your portfolio. Employers want to see what you can do, but they also want to see how you work with other developers. The more examples of deployed collaborative work you have in your portfolio, the more likely you are to get an interview and a job.
+## Author
 
-## Project Requirements
+Devin Nunez
+Forrest King
+Michael Prevost
 
-You and your group will use everything you’ve learned over the past six modules to create a real-world full-stack application that you’ll be able to showcase to potential employers. The user story and acceptance criteria will depend on the project that you create, but your project must fulfil the following requirements:
+Email: 
+devv-nunn@gmail.com
 
-* Use Node.js and Express.js to create a RESTful API.
 
-* Use Handlebars.js as the template engine.
+git: 
+https://github.com/devv-nunn
+https://github.com/isen28
+https://github.com/m00krat
 
-* Use MySQL and the Sequelize ORM for the database.
+## Description
 
-* Have both GET and POST routes for retrieving and adding new data.
+In this project we will create a an application that will help student find the perfect tutor for there needs by displaying all available tutors and their reviews.
 
-* Use at least one new library, package, or technology that we haven’t discussed.
+This website relys on our users to leave tutor reviews. These tutor reviews will be listed for other users to use as a reference.
 
-* Have a folder structure that meets the MVC paradigm.
+We will be using express to handle our routes and sequalize to proform CRUD operations on our database.
 
-* Include authentication (express-session and cookies).
+We also use Mysql12 as our database. This database has 3 tables. Student, Tutor, and Review.
 
-* Protect API keys and sensitive information with environment variables.
+In this project we learned how to tie in all aspects of web development to make our first full stack project.
+## Table of Contents (Optional)
 
-* Be deployed using Heroku (with data).
+N/a
 
-* Have a polished UI.
+## Installation
 
-* Be responsive.
+- vs.code and node.js must be installed to use this applicationn
 
-* Be interactive (i.e., accept and respond to user input).
+- Clone the following repository after installing vs.code and node.js 
 
-* Meet good-quality coding standards (file structure, naming conventions, follows best practices for class/id naming conventions, indentation, quality comments, etc.).
+- in terminal run npm i as it will download necessary dependencies such as express, mysql12.
 
-* Have a professional README (with unique name, description, technologies used, screenshot, and link to deployed application).
+- for mysql download docker and start a mysql container. Documentation on this process online.
 
-## Presentation Requirements
+## Usage
 
-Use this [project presentation template](https://docs.google.com/presentation/d/10QaO9KH8HtUXj__81ve0SZcpO5DbMbqqQr4iPpbwKks/edit?usp=sharing) to address the following: 
+To use this application write "node index.js" this will start the web application on the local host.
 
-* Elevator pitch: a one minute description of your application
+After starting up the application, users are able to navigate around our whole website without logging in. If you want to leave a review for a specific tutor you will need to log in for that.
 
-* Concept: What is your user story? What was your motivation for development?
+Users are able to log in as a student or as a tutor.
 
-* Process: What were the technologies used? How were tasks and roles broken down and assigned? What challenges did you encounter? What were your successes?
+After logging in as a student you are then able to leave reviews for individual tutors.
 
-* Demo: Show your stuff!
+Users can also navigate to our tutors page which will display all tutors. Users could then click on a tutor name which will navigate the user to the corrisponding tutors profile page which will display tutor information and all reviews that have been left for that tutor. This can help you dicide whether or not that tutor is right for you by noting all of the reviews left by other students.
 
-* Directions for Future Development
+## Application screenshots
+![Website screenshot](./assets/images/Capture1.PNG)
 
-* Links to the deployed application and the GitHub repository. Use the [Guide to Deploy with Heroku and MySQL](https://coding-boot-camp.github.io/full-stack/heroku/deploy-with-heroku-and-mysql) on The Full-Stack Blog if you need a reminder on how to deploy to Heroku.
+![Website screenshot](./assets/images/Capture2.PNG)
 
-## Grading Requirements
+## Videos Demonstrating application:
+N/A
 
-This project is graded based on the following criteria:
+## Deployment
 
-### Technical Acceptance Criteria: 25%
+Repo: https://github.com/DevinDevelopment/TutorFinder
+Heroku: https://obscure-fortress-09453-d190392c47f1.herokuapp.com/
 
-* Satisfies the following code requirements:
+# Tech Stack
 
-  * Application uses a Node.js and Express.js back end and uses both GET and POST routes for retrieving and adding new data.
+HTML
+CSS
+JavaScript
+Node.js
+Express.js
+Sequalize
+mysql
+Validator
 
-  * Application has a folder structure that meets the MVC paradigm and uses Handlebars.js as the template engine.
+## Credits
 
-  * Application is backed by a MySQL database with a Sequelize ORM and protects API keys and sensitive information with environment variables.
+N/a
 
-  * Application includes user authentication (express-session and cookies).
+## License
 
-  * Application uses at least one new library, package, or technology not covered in class.
-
-### Concept 10%
-
-* Application should be a unique and novel idea.
-
-* Your group should clearly and concisely articulate your project idea.
-
-### Deployment: 20%
-
-* Application deployed at live URL on Heroku and loads with no errors.
-
-* Application GitHub URL submitted.
-
-### Repository Quality: 10%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id-naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality README file with description, screenshot, and link to deployed application.
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate.
-
-* Application user interface style is clean and polished.
-
-* Application is responsive.
-
-### Presentation 10%
-
-* Your group should present using a slide deck.
-
-* Every group member should speak during the presentation.
-
-* Your presentation should follow the [Project Presentation Template](https://docs.google.com/presentation/d/10QaO9KH8HtUXj__81ve0SZcpO5DbMbqqQr4iPpbwKks/edit?usp=sharing).
-
-### Collaboration 10%
-
-* There are no major disparities in the number of GitHub contributions between group members.
-
-## How to Submit Your Interactive Full-Stack Project
-
-**Each member of your group** is required to submit the following for review:
-
-* The URL of the deployed application.
-
-* The URL of the GitHub repository, with a unique name and a README describing the project.
-
----
-© 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+MIT License.
