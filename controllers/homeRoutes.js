@@ -65,7 +65,7 @@ router.get('/tutors', async (req, res) => {
   }
 });
 
-// ----- Tutor page route
+// ----- Tutors page route
 
 router.get('/tutor/:id', async (req, res) => {
   try {
@@ -94,29 +94,9 @@ router.get('/profile', async (req, res) => {
     const user = userProfile.get({ plain: true });
     res.render('userProfile', { 
       user, 
-      logged_in: req.session.logged_in  
+      logged_in: req.session.logged_in,  
+      layout: 'main',
     });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
-
-// ----- Tutor profile
-
-router.get('/tutorprofile', async (req, res) => {
-  try {
-    const tutorId = req.session.user_id;
-    const tutorProfile = await Tutor.findByPk( tutorId, {
-      include: { model: Review },
-      layout: 'main'
-    });
-
-    const tutor = tutorProfile.get({ plain: true });
-    res.render('tutorprofile', { 
-      tutor,
-      logged_in: req.session.logged_in 
-     });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -126,12 +106,16 @@ router.get('/tutorprofile', async (req, res) => {
 // ------ Search bar route
 router.get('/tutorprofile', async (req, res) => {
   try {
-    const tutorProfile = await Tutor.findOne({ where: { name: tutorName} });
+    const tutorId = req.session.tutor_id;
+    const tutorProfile = await Tutor.findByPk( tutorId, {
+      include: { model: Review },
+    });
 
     const tutor = tutorProfile.get({ plain: true });
     res.render('tutorProfile', { 
-      tutor,
-      layout: 'main'
+      tutor, 
+      logged_in: req.session.logged_in,
+      layout: 'main2',  
     });
   } catch (err) {
     console.log(err);

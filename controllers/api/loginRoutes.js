@@ -5,19 +5,19 @@ const withAuth = require('../../utils/auth');
 // ------ Student login routes
 
 router.post('/studentsignup', async (req, res) => {
-    try {
-        const userData = await User.create(req.body);
-    
-        req.session.save(() => {
-          req.session.user_id = userData.id;
-          req.session.logged_in = true;
-    
-          res.status(200).json(userData);
-        });
-      } catch (err) {
-        res.status(400).json(err);
-      }
+  try {
+    const userData = await User.create(req.body);
+
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+
+      res.status(200).json(userData);
     });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 
 router.post('/studentlogin', async (req, res) => {
     try {
@@ -58,7 +58,7 @@ router.post('/tutorsignup', async (req, res) => {
         const tutorData = await Tutor.create(req.body);
     
         req.session.save(() => {
-          req.session.user_id = tutorData.id;
+          req.session.tutor_id = tutorData.id;
           req.session.logged_in = true;
     
           res.status(200).json(tutorData);
@@ -89,7 +89,7 @@ router.post('/tutorsignup', async (req, res) => {
         }
     
         req.session.save(() => {
-          req.session.user_id = tutorData.id;
+          req.session.tutor_id = tutorData.id;
           req.session.logged_in = true;
           
           res.json({ user: tutorData, message: 'You are now logged in!' });
