@@ -53,7 +53,6 @@ router.get('/tutors', async (req, res) => {
   try {
     const tutorData = await Tutor.findAll({
       attributes: ['id', 'name'],
-      //order: ['name', 'DESC'],
     });
     
     const tutors = tutorData.map((tutor) =>

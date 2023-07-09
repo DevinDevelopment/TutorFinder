@@ -1,11 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
 class Review extends Model {
-//   checkPassword(loginPw) {
-//     return bcrypt.compareSync(loginPw, this.password);
-//  }
 }
 
 Review.init(
@@ -19,16 +15,10 @@ Review.init(
     title: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        len: [2,15]
-      }
     },
     text: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        len: [10,350]
-      },
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -48,12 +38,6 @@ Review.init(
     },
   },
   {
-    // hooks: {
-    //   beforeCreate: async (newUserData) => {
-    //     newUserData.password = await bcrypt.hash(newUserData.password, 10);
-    //     return newUserData;
-    //   },
-    // },
     sequelize,
     timestamps: false,
     freezeTableName: true,
