@@ -81,16 +81,21 @@ h2 {
 
 .review-box-testy {
   background-color: #0D1821;
-  height: 100vh;
+  min-height: 100vh;
 }
 .review-box-test {
   background-color: #344966;
-  height: 100vh;
+  min-height: 100vh;
+}
+.review-box-login {
+  background-color: #344966;
+  min-height: 100vh;
+  min-width: 100vw;
 }
 .review-box-tutors {
   background-color: #344966;
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
+  min-width: 100vw;
 }
 
 .review-box-profile {
@@ -121,7 +126,10 @@ h2 {
 
 .tutors-container {
   background-color: #344966;;
-  height: 100vh;
+  min-height: 100vh;
+}
+.login-container {
+  background-color: #344966;;
 }
 
 .tutor-title {
@@ -129,5 +137,6 @@ h2 {
 }
 
 .page-background {
-  background-color: black;
+  background-color: #344966;
+  min-height: 100vh;
 }
