@@ -1,6 +1,5 @@
 const router = require('express').Router();
-const { Tutor, Review } = require('../../models');
-const withAuth = require('../../utils/auth');
+const { Tutor, Review, User } = require('../../models');
 
 router.get('/:id', async (req, res) => {
   try {
@@ -25,14 +24,20 @@ router.get('/:id', async (req, res) => {
 
 router.post('/:id/addReview', async (req, res) => {
   try {
-    console.log('post test');
+    const { title, text } = req.body;
+    const tutorId = req.params.id;
+    const userId = req.session.user_id;
+    
     const newReview = await Review.create({
-      title: req.body.title,
-      text: req.body.text,
-      tutor_id: req.params.id,
-      tutor_id: req.session.user_id,
+      include: {
+        model: User,
+      },
+      title,
+      text,
+      tutor_id: tutorId,
+      user_id: userId,
+      logged_in: req.session.logged_in,
     });
-
     res.status(200).json(newReview);
   } catch (err) {
     res.status(400).json(err);
@@ -44,7 +49,6 @@ router.post('/:id/addReview', async (req, res) => {
 router.put('/tutordescription', async (req, res) => {
   try {
     const tutorId = req.session.tutor_id;
-    console.log(tutorId);
     const descriptionData = await Tutor.update({ description: req.body.tutorDesc}, 
       {where: {id : tutorId}}
       );
