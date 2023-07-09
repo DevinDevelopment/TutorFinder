@@ -1,6 +1,6 @@
-# README.MD Employee Tracker
+# README.MD Rate My Tutor
 
-## Author
+## Authors
 
 Devin Nunez
 Forrest King
@@ -8,6 +8,8 @@ Michael Prevost
 
 Email: 
 devv-nunn@gmail.com
+king.forrest828@gmail.com
+prevostm17@yahoo.com
 
 
 git: 
@@ -17,7 +19,7 @@ https://github.com/m00krat
 
 ## Description
 
-In this project we will create a an application that will help student find the perfect tutor for there needs by displaying all available tutors and their reviews.
+In this project we will create a an application that will help students find the perfect tutor for there needs by displaying all available tutors and their reviews.
 
 This website relys on our users to leave tutor reviews. These tutor reviews will be listed for other users to use as a reference.
 
@@ -53,9 +55,9 @@ After logging in as a student you are then able to leave reviews for individual 
 Users can also navigate to our tutors page which will display all tutors. Users could then click on a tutor name which will navigate the user to the corrisponding tutors profile page which will display tutor information and all reviews that have been left for that tutor. This can help you dicide whether or not that tutor is right for you by noting all of the reviews left by other students.
 
 ## Application screenshots
-![Website screenshot](./assets/images/Capture1.PNG)
+![Website screenshot](./public/images/Capture1.PNG)
 
-![Website screenshot](./assets/images/Capture2.PNG)
+![Website screenshot](./public/images/Capture2.PNG)
 
 ## Videos Demonstrating application:
 N/A

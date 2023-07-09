@@ -1,19 +1,24 @@
 const router = require('express').Router();
 const { User, Tutor } = require('../../models');
 const withAuth = require('../../utils/auth');
+const validator = require('validator');
 
 // ------ Student login routes
 
 router.post('/studentsignup', async (req, res) => {
+  var isemail = validator.isEmail(req.body.email);
   try {
+    if(isemail){
     const userData = await User.create(req.body);
-
+    
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
 
       res.status(200).json(userData);
+    
     });
+  };
   } catch (err) {
     res.status(400).json(err);
   }
@@ -54,7 +59,9 @@ router.post('/studentlogin', async (req, res) => {
 // ------ Tutor login routes
 
 router.post('/tutorsignup', async (req, res) => {
+  var isemail = validator.isEmail(req.body.email);
     try {
+      if(isemail){
         const tutorData = await Tutor.create(req.body);
     
         req.session.save(() => {
@@ -63,6 +70,7 @@ router.post('/tutorsignup', async (req, res) => {
     
           res.status(200).json(tutorData);
         });
+      }
       } catch (err) {
         res.status(400).json(err);
       }

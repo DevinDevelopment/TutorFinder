@@ -21,6 +21,7 @@
 
     <div class="review-box-test col-md-6">
       <div class="text-bubble">
+        {{#if logged_in}}
         <h3 class="mt-4 text-white">Leave a Review</h3>
         <form class="form review-form">
           <div class="form-group">
@@ -35,9 +36,13 @@
             <button type="submit" class="btn btn-primary mt-3 submit-button" id="submit-review-bttn">Submit Review</button>
         </form>
       </div>
+      {{else}}
+      <h1>Log in to leave a review:</h1>
+      <br>
+      {{/if}}
 
       <div class="d-flex justify-content-center ">
-        <h1 class="">Reviews:</h1>
+        <h1 class="">Tutor reviews:</h1>
       </div>
       {{#each tutor.reviews as |review|}}
         <div class="review-box d-flex flex-column justify-content-center align-items-center custom-margin-bottom mb-3 mt-5 mr-5 ml-5">
