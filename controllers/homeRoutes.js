@@ -87,7 +87,7 @@ router.get('/profile', async (req, res) => {
   try {
     const userId = req.session.user_id;
     const userProfile = await User.findByPk( userId, {
-      include: [{ model: Review }, { model: User }],
+      include: { model: Review },
       layout: 'main',
     });
 
