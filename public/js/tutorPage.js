@@ -15,7 +15,7 @@ const addReviewHandler = async (event) => {
     }); 
     if (response.ok) {
       console.log('post test 1');
-      document.location.replace('/tutors');
+      document.location.replace(`/tutor/${tutor_id}`);
     } else {
       console.log('post test bad');
       alert(response.statusText);
