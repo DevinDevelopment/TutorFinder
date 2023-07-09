@@ -31,7 +31,7 @@ router.get('/', async (req, res) => {
 router.get('/tutorshomepage', async (req, res) => {
   try {
     const reviewData = await Review.findAll({
-      include: [{ model: Tutor }, { model: User }],
+      include: { model: Tutor },
       order: [
         [sequelize.literal('RAND()')]
       ],
