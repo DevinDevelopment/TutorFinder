@@ -70,7 +70,7 @@ router.get('/tutors', async (req, res) => {
 router.get('/tutor/:id', async (req, res) => {
   try {
     const tutorData = await Tutor.findByPk(req.params.id, {
-      include: [{ model: Review }, { model: User }],
+      include: { model: Review },
     });
 
     const tutor = tutorData.get({ plain: true });
@@ -87,7 +87,7 @@ router.get('/profile', async (req, res) => {
   try {
     const userId = req.session.user_id;
     const userProfile = await User.findByPk( userId, {
-      include: { model: Review },
+      include: [{ model: Review }, { model: User }],
       layout: 'main',
     });
 
