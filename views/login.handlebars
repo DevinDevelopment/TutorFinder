@@ -1,77 +1,66 @@
-<div class="container-fluid page-background"></div>
-
-<div class="row mt-5">
-  <div class="col-md-6 offset-md-3 text-center">
-    <h3 class=" display-4">Login</h2>
+<div class="container-fluid page-background">
+  <div class="d-flex flex-column align-items-center">
+    <h3 class="display-4 text-white mt-4">Login</h3>
   </div>
-</div>
 
-<div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h4>Select your user type:</h4>
-                <br>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                        <label class="form-check-label" for="inlineRadio1">Student</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                        <label class="form-check-label" for="inlineRadio2">Tutor</label>
-                    </div>
-            </div>
+  <div class="container d-flex flex-column align-items-center">
+    <div class="row">
+      <div class="col-12 text-center mt-3">
+        <h4 class="text-white">Select your user type:</h4>
+        <br>
+        <div class="d-flex justify-content-center">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+            <label class="form-check-label text-white" for="inlineRadio1">Student</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+            <label class="form-check-label text-white" for="inlineRadio2">Tutor</label>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
-<div class="row mt-3">
-  <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
-    <h3 class="login mb-5">Login</h2>
+  <div class="row mt-3">
+    <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
+      <h3 class="login mb-2 text-white">Login</h3>
 
-    <form class="form student-login-form">
-      <div class="form-group row">
-        <label for="login-email" class="col-sm-3 col-form-label">Email:</label>
-        <div class="col-sm-9">
+      <form class="form student-login-form">
+        <div class="form-group">
+          <label for="login-email" class="col-form-label text-white">Email:</label>
           <input class="form-control" type="text" id="login-email" />
         </div>
-      </div>
-      <div class="form-group row">
-        <label for="login-password" class="col-sm-3 col-form-label">Password:</label>
-        <div class="col-sm-9">
+        <div class="form-group">
+          <label for="login-password" class="col-form-label text-white">Password:</label>
           <input class="form-control" type="password" id="login-password" />
         </div>
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary mt-3 login-btn" type="submit" id="login-btn">Login</button>
-      </div>
-    </form>
-  </div>
-  <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
+        <div class="form-group">
+          <button class="btn btn-outline-success my-2 my-sm-0 custom-button" type="submit" id="login-btn text-white">Login</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
 
-  <h3 class="signup mb-5">Signup</h2>
-    <form class="form student-signup-form">
-      <div class="form-group row">
-        <label for="signup-name" class="col-sm-3 col-form-label">Name:</label>
-        <div class="col-sm-9">
+      <h3 class="signup mb-2 text-white">Signup</h3>
+      <form class="form student-signup-form">
+        <div class="form-group">
+          <label for="signup-name" class="col-form-label text-white">Name:</label>
           <input class="form-control" type="text" id="signup-name" />
         </div>
-      </div>
-      <div class="form-group row">
-        <label for="signup-email" class="col-sm-3 col-form-label">Email:</label>
-        <div class="col-sm-9">
+        <div class="form-group">
+          <label for="signup-email" class="col-form-label text-white">Email:</label>
           <input class="form-control" type="text" id="signup-email" />
         </div>
-      </div>
-      <div class="form-group row">
-        <label for="signup-password" class="col-sm-3 col-form-label">Password:</label>
-        <div class="col-sm-9">
+        <div class="form-group">
+          <label for="signup-password" class="col-form-label text-white">Password:</label>
           <input class="form-control" type="password" id="signup-password" />
         </div>
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary mt-3 signup-btn" type="submit" id="signup-btn">Signup</button>
-      </div>
-    </form>
+        <div class="form-group">
+          <button class="btn btn-outline-success my-2 my-sm-0 custom-button" type="submit" id="signup-btn">Signup</button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
 
-<script src="/js/login.js"></script>

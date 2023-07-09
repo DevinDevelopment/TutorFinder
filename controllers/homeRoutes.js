@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Review, User, Tutor } = require('../models');
 const sequelize = require('../config/connection');
+const { Op } = require('sequelize');
 
 // ------ homepage when (signedout) / (student signed in)
 
@@ -30,7 +31,7 @@ router.get('/', async (req, res) => {
 router.get('/tutorshomepage', async (req, res) => {
   try {
     const reviewData = await Review.findAll({
-      include: [{ model: Tutor }, { model: User }],
+      include: { model: Tutor },
       order: [
         [sequelize.literal('RAND()')]
       ],
